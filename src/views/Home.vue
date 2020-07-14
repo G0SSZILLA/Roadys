@@ -131,11 +131,12 @@
 <div class="col-1"></div>
 <div class="col-5 roadyCard"></div>
 </div>
-<div class="row">
+<div class="row btnRow">
   <div class="col-4 text-right"><a class="btn btn-unique rewardBtn shadow">LEARN MORE</a></div>
   <div class="col-4 text-center"><a class="btn btn-unique rewardBtn shadow">REGISTER YOUR CARD</a></div>
   <div class="col-4 text-left"><a class="btn btn-unique rewardBtn shadow">CHECK BALANCE</a></div>
 </div>
+<div class="row knowATruckstop"></div>
 
   </div>
 </template>
@@ -254,5 +255,14 @@ font-size: 2.7rem;
 .rewardBtn{
   font-weight: 500;
   background-color: #f3f3f3;
+}
+.btnRow{
+  height: 100px;
+}
+
+.knowATruckstop{
+  background-color:#1e549a ;
+  height: 550px;
+  
 }
 </style>
