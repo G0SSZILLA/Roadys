@@ -40,15 +40,14 @@
           <div class="card-body">
             <!-- Title -->
             <h4 class="card-title">
-              <a>Card title</a>
+              <a>Snickers</a>
             </h4>
             <!-- Text -->
             <p class="card-text">
-              Some quick example text to build on the card title and make up the bulk of the card's
-              content.
+              A yummy delicous chocolate bar with peanuts and carmel.
             </p>
             <!-- Button -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fullHeightModalRight">ADD TO CART</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fullHeightModalRight" @click="addToCart">ADD TO CART</button>
           </div>
         </div>
       </div>
@@ -67,15 +66,14 @@
           <div class="card-body">
             <!-- Title -->
             <h4 class="card-title">
-              <a>Card title</a>
+              <a>Rocky Road</a>
             </h4>
             <!-- Text -->
             <p class="card-text">
-              Some quick example text to build on the card title and make up the bulk of the card's
-              content.
+              Rocky road ice cream in candy bar form.
             </p>
             <!-- Button -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fullHeightModalRight">ADD TO CART</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fullHeightModalRight" @click="addToCart">ADD TO CART</button>
           </div>
         </div>
       </div>
@@ -94,15 +92,14 @@
           <div class="card-body">
             <!-- Title -->
             <h4 class="card-title">
-              <a>Card title</a>
+              <a>Reeses cups</a>
             </h4>
             <!-- Text -->
             <p class="card-text">
-              Some quick example text to build on the card title and make up the bulk of the card's
-              content.
+              Perfect combo of chocolate and peanutbutter
             </p>
             <!-- Button -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fullHeightModalRight">ADD TO CART</button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fullHeightModalRight" @click="addToCart">ADD TO CART</button>
           </div>
         </div>
       </div>
@@ -122,15 +119,14 @@
           <div class="card-body">
             <!-- Title -->
             <h4 class="card-title">
-              <a>Card title</a>
+              <a>Nerds</a>
             </h4>
             <!-- Text -->
             <p class="card-text">
-              Some quick example text to build on the card title and make up the bulk of the card's
-              content.
+              Tangy, crunchy candy, a willy wonka classic!
             </p>
             <!-- Button -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fullHeightModalRight">ADD TO CART</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fullHeightModalRight" @click="addToCart">ADD TO CART</button>
           </div>
         </div>
       </div>
@@ -138,7 +134,7 @@
     </div>
 
 <!-- NOTE SHOPPING CART MODAL -->
-<div class="modal fade right" id="miniCart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<div class="modal fade right" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
 
   <!-- Add class .modal-full-height and then add class .modal-right (or other classes from list above) to set a position to the modal -->
@@ -153,7 +149,11 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <ul>
+            <li :v-for="item in this.$store.state.cart">
+                {{item.productName}}
+            </li>
+        </ul>
       </div>
       <div class="modal-footer justify-content-center">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
@@ -162,7 +162,7 @@
     </div>
   </div>
 </div>
-<!-- Full Height Modal Right -->
+
 
   </div>
 </template>
@@ -171,11 +171,27 @@
 <script>
 export default {
   name: "Products",
+  props:{
+      name:String,
+      price:String,
+      description:String,
+  },
   data() {
-    return {};
+    return {
+        item:{
+            productName: this.name,
+            productPrice: this.price,
+            productDescription: this.description,
+            productQuantity: 1,
+        }
+    };
   },
   computed: {},
-  methods: {},
+  methods: {
+      addToCart(){
+          this.$store.commit('addToCart', this.item)
+      }
+  },
   components: {}
 };
 </script>
