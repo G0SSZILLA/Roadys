@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 //@ts-ignore
 import Home from "../views/Home.vue";
 //@ts-ignore
-import Products from "../Products.vue";
+import Products from "../views/Products.vue";
 
 Vue.use(VueRouter);
 
@@ -14,11 +14,10 @@ const routes = [{
     },
 
     {
-        path: "/Products",
+        path: "/products",
         name: "Products",
         component: Products,
-
-    }
+    },
     // {
     //   path: "/about",
     //   name: "About",
@@ -31,9 +30,9 @@ const routes = [{
 ];
 
 const router = new VueRouter({
-    mode: "history",
-    base: process.env.BASE_URL,
-    routes
+    // mode: "history",
+    // base: process.env.BASE_URL,
+    routes,
 });
 
 export default router;
