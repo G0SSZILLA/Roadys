@@ -2,11 +2,11 @@
 <template>
   <div class="Home container-fluid">
 <div class="row roadysImg" style="height:550px"></div>
-<div class="row products">
+<div class="row products pr-0">
 
   <!-- NOTE CARD 1 -->
-  <div class="col-3">
-<div class="card card-cascade wider  bg-transparent border-0">
+  <div class="col-3 pl-0">
+<div class="card card-cascade wider bg-transparent border-0">
 
   <!-- Card image -->
   <div class="view view-cascade overlay">
@@ -17,7 +17,7 @@
   </div>
 
   <!-- Card content -->
-  <div class="card-body card-body-cascade pr-0 text-center">
+  <div class="card-body card-body-cascade text-center">
 
     <!-- Title -->
     <h4 class="card-title"><strong>Fuel</strong></h4>
@@ -33,7 +33,7 @@
   </div>
 
   <!-- NOTE CARD 2 -->
-  <div class="col-3">
+  <div class="col-3 pl-0">
 <div class="card card-cascade wider bg-transparent border-0">
 
   <!-- Card image -->
@@ -61,7 +61,7 @@
   </div>
 
 <!-- NOTE CARD 3 -->
-  <div class="col-3 ">
+  <div class="col-3 pl-0">
 <div class="card card-cascade wider bg-transparent border-0">
 
   <!-- Card image -->
@@ -174,7 +174,7 @@ export default {
 }
 .card{
   color: aliceblue;
-  width: 483px;
+  width: 475px;
   font-weight: 500;
 }
 .card-title{
@@ -189,16 +189,16 @@ export default {
 }
 
 .card-img-top{
-  width: 475.5px;
+  width: 475.9px;
   height: 250px;
 }
 
-.serviceImg{
+/* .serviceImg{
   width: 475.5px;
-}
+} */
 
 .buttonCard-1{
-  margin-top: 97px;
+  margin-top: 75px;
   background-color:#12325c;
   width: 300px;
   font-size: 1.25rem;

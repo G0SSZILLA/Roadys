@@ -5,9 +5,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        cart: [
-
-        ]
+        item: [],
+        cart: []
     },
     mutations: {
         addToCart(state, item) {

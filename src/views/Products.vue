@@ -32,8 +32,8 @@
         <div class="card">
           <!-- Card image -->
           <img
-            class="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
+            class="card-img-top snickers"
+            src="../assets/Screen-Shot-2019-11-04-at-4.49.46-PM_600x.png"
             alt="Card image cap"/>
 
           <!-- Card content -->
@@ -57,15 +57,15 @@
         <div class="card">
           <!-- Card image -->
           <img
-            class="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
+            class="card-img-top mt-5 pt-5"
+            src="../assets/rockyroad.png"
             alt="Card image cap"
           />
 
           <!-- Card content -->
           <div class="card-body">
             <!-- Title -->
-            <h4 class="card-title">
+            <h4 class="card-title mt-5">
               <a>Rocky Road</a>
             </h4>
             <!-- Text -->
@@ -83,8 +83,8 @@
         <div class="card">
           <!-- Card image -->
           <img
-            class="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
+            class="card-img-top reeses"
+            src="../assets/reeses.png"
             alt="Card image cap"
           />
 
@@ -110,10 +110,9 @@
         <div class="card">
           <!-- Card image -->
           <img
-            class="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"
-            alt="Card image cap"
-          />
+            class="card-img-top nerds mt-5"
+            src="../assets/1_j5pfQasjr3S_lZxEc5eAbA.png"
+            alt="Card image cap"/>
 
           <!-- Card content -->
           <div class="card-body">
@@ -130,14 +129,12 @@
           </div>
         </div>
       </div>
-
     </div>
 
 <!-- NOTE SHOPPING CART MODAL -->
 <div class="modal fade right" id="fullHeightModalRight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
 
-  <!-- Add class .modal-full-height and then add class .modal-right (or other classes from list above) to set a position to the modal -->
   <div class="modal-dialog modal-full-height modal-right" role="document">
 
 
@@ -151,9 +148,13 @@
       <div class="modal-body">
         <ul>
             <li :v-for="item in this.$store.state.cart">
-                {{item.productName}}
+                <span>{{this.productName}}</span>
+                <span>{{item.productPrice}}</span>
+                <span>{{item.productDescription}}</span>
+                <span class="quantity"> <button class="quantityMinus mr-2" @click="addToQuantity">&minus;</button>{{item.productQuantity}}<button class="quantityPlus ml-2" @click="removeQuantity">&plus;</button></span>
             </li>
         </ul>
+        <hr>
       </div>
       <div class="modal-footer justify-content-center">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
@@ -173,13 +174,14 @@ export default {
   name: "Products",
   props:{
       name:String,
-      price:String,
+      price:Number,
       description:String,
+      quantity:Number,
   },
   data() {
     return {
         item:{
-            productName: this.name,
+            productName:this.name,
             productPrice: this.price,
             productDescription: this.description,
             productQuantity: 1,
@@ -190,6 +192,12 @@ export default {
   methods: {
       addToCart(){
           this.$store.commit('addToCart', this.item)
+      },
+      addToQuantity(){
+          this.productQuantity += this.productQuantity
+      },
+      removeQuantity(){
+          this.productQuantity -= this.productQuantity
       }
   },
   components: {}
@@ -198,6 +206,11 @@ export default {
 
 
 <style scoped>
+
+.snickers{
+height: 100.72;
+}
+
 .cartText {
   font-weight: 600;
   font-size: 18px;
@@ -220,5 +233,13 @@ export default {
 .productNav {
   height: 75px;
   background-color: #1e549a;
+}
+
+.quantity{
+border: 3px;
+}
+
+.quantityMinus{
+
 }
 </style>
